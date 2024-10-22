@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { officer } from '../models/models'
+import { officer } from '../models/models.js'
 import ENV from "../utils/env.js"
 
 const requireAuth = (req, res, next) => {

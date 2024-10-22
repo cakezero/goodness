@@ -1,4 +1,4 @@
-import { officer } from "../models/models";
+import { officer } from "../models/models.js";
 import jwt from "jsonwebtoken";
 import ENV from "../utils/env.js";
 

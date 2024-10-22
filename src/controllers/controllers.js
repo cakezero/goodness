@@ -1,5 +1,5 @@
-import { officer, penality, plateNumber } from "../models/models";
-import { checkForOfficer } from "../middlewares/auth";
+import { officer, penality, plateNumber } from "../models/models.js";
+import { checkForOfficer } from "../middlewares/auth.js";
 
 const home = (req, res) => {
   res.render("home");
