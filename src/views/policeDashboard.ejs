@@ -44,13 +44,17 @@
             <tr>
               <th>Driver Names</th>
               <th>Plate Numbers</th>
+              <th>Penality</th>
             </tr>
           </thead>
           <tbody>
+            <% foundPenalitys.forEach((foundPenality, index) => { %>
             <tr>
-              <td><%= driverInfo.driverName %></td>
+              <td><%= foundPenality.driverName %></td>
               <td><%= foundPenality.plate_number %></td>
+              <td><%= foundPenality.description %></td>
             </tr>
+            <% }) %>
           </tbody>
         <% } %>
       </table>

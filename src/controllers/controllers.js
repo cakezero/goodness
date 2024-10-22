@@ -11,19 +11,19 @@ const policeDashboard = async (req, res) => {
   try {
     const officer = await checkForOfficer(cookie);
 
-    const foundPenality = await penality
+    const foundPenalitys = await penality
       .find({ officer: officer._id })
       .sort({ _id: -1 });
     
-    console.log({ foundPenality })
-    if (!foundPenality) return res.render("policeDashboard", { message: "hehe" });
+    console.log({ foundPenalitys })
+    if (!foundPenalitys || foundPenalitys.length === 0) return res.render("policeDashboard", { message: "hehe" });
 
-    const driverInfo = await plateNumber.findOne({ plate_number: foundPenality.plate_number })
-    
+    const driverInfos = await plateNumber.find({ officer: officer._id }).sort({ _id: -1 })
+    console.log({ driverInfos })
     return res.render("policeDashboard", {
       message: null,
-      foundPenality,
-      driverInfo,
+      foundPenalitys,
+      driverInfos,
     });
   } catch (error) {
     return res.status(500).json({ error });
@@ -75,6 +75,7 @@ const add_penality = async (req, res) => {
 
     const penalityCreated = await penality.create({
       plate_number: checkedPlateNumber.plate_number,
+      driverName: checkedPlateNumber.driverName,
       description,
       date,
       officer: loggedInOfficer._id
@@ -85,7 +86,8 @@ const add_penality = async (req, res) => {
       .status(200)
       .json({ message: "plate number has been penalized!" });
   } catch (error) {
-    return res.status(500).json({ error: "Internal server error" });
+    console.log({ error })
+    return res.status(500).json({ error });
   }
 };
 
