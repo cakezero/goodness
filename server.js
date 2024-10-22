@@ -40,7 +40,7 @@ app.use("/", userRoute);
 app.use('/user', authRoute);
 
 // Port config
-const port = 8000 || ENV.PORT;
+const port = ENV.PORT || 8000;
 
 app.listen(port, () => {
 	console.log(`Server running on port: ${port}`);
