@@ -30,19 +30,19 @@
 
 <body>
   <div class="hero">
-    <form action="/user/police" method="post" class="login-form">
+    <form class="login-form">
       <h2 class="text-center">Police Login</h2>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
       </div>
       <button type="submit" class="btn btn-primary w-100">Login</button>
       <p class="text-center mt-3">
-        Not a police officer? <a href="/user/vio">Login as VIO</a>
+        Don't have an account? <a href="/signup">Sign up</a>
       </p>
     </form>
   </div>
